@@ -4,7 +4,8 @@ export const genNoisyShape = (
   noiseStep = 0.01,
   curveVertices = true,
 ) => {
-  const border = width * 0.1;
+  const borderX = width * 0.1;
+  const borderY = height * 0.1;
 
   const vertices = Array.from({ length: nVertices }, () => {
     const seed = { noiseSeed: random(100) };
@@ -19,8 +20,8 @@ export const genNoisyShape = (
       const xn = noise(noiseSeed);
       const yn = noise(noiseSeed, 42);
 
-      const x = map(xn, 0, 1, border, width - border);
-      const y = map(yn, 0, 1, border, height - border);
+      const x = map(xn, 0, 1, borderX, width - borderX);
+      const y = map(yn, 0, 1, borderY, height - borderY);
 
       if (curveVertices) {
         if (vi === 0 || vi === vertices.length) curveVertex(x, y);
