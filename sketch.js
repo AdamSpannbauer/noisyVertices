@@ -4,6 +4,9 @@ let cnv;
 let genBtn;
 let saveBtn;
 let curveCheckbox;
+let nVerticesInput;
+let nLinesInput;
+let stepSizeSlider;
 
 let curveVertices;
 
@@ -15,9 +18,10 @@ const genShape = () => {
   background(255);
 
   // TODO: make these user inputs
-  const nVertices = 8; // each vertex is a bend in the line
-  const nSteps = 32; // each step is a new line
-  const noiseStep = 0.01; // how far can the vertices move between each new line
+  const noiseStep = stepSizeSlider.value() / 1000;
+
+  const nVertices = parseInt(nVerticesInput.value(), 10);
+  const nSteps = parseInt(nLinesInput.value(), 10);
 
   genNoisyShape(nVertices, nSteps, noiseStep, curveVertices);
 };
@@ -44,6 +48,21 @@ window.setup = () => {
   curveCheckbox = createCheckbox('Curved vertices', true);
   curveCheckbox.changed(curveCheckEvent);
   curveCheckbox.position(0, 50);
+
+  nVerticesInput = createInput(8, 'number');
+  nVerticesInput.position(0, 75);
+  const nVLabel = createP('number of vertices');
+  nVLabel.position(nVerticesInput.x + nVerticesInput.width, 60);
+
+  nLinesInput = createInput(32, 'number');
+  nLinesInput.position(0, 100);
+  const nLLabel = createP('number of lines');
+  nLLabel.position(nLinesInput.x + nLinesInput.width, 85);
+
+  stepSizeSlider = createSlider(1, 25, 8, 1);
+  stepSizeSlider.position(0, 125);
+  const sliderLabel = createP('step size');
+  sliderLabel.position(stepSizeSlider.x + stepSizeSlider.width, 110);
 
   noFill();
   stroke(0);
