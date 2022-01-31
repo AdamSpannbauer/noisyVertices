@@ -1,0 +1,25 @@
+{
+  "name": "noisyvertices",
+  "version": "1.0.0",
+  "description": "quick site to gen a noisy shape",
+  "main": "sketch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdamSpannbauer/noisyVertices.git"
+  },
+  "author": "Adam Spannbauer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AdamSpannbauer/noisyVertices/issues"
+  },
+  "homepage": "https://github.com/AdamSpannbauer/noisyVertices#readme",
+  "devDependencies": {
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-p5js": "^1.1.0",
+    "eslint-plugin-import": "^2.25.4"
+  }
+}
